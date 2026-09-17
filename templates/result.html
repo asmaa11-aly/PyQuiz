@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Result | PyQuiz</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <div class="result-container">
+
+        <div class="result-card">
+
+            <div class="result-icon">
+                ✦
+            </div>
+
+            <h1>Quiz Completed! 🎉</h1>
+
+            <p class="result-topic">
+                {{ topic }}
+            </p>
+
+            <div class="score">
+                {{ score }} / {{ total }}
+            </div>
+
+            <p class="result-message">
+                Great job! Keep learning and improving.
+            </p>
+
+            <div class="result-buttons">
+
+                <a href="/quiz/{{ topic }}"
+                   class="primary-button">
+                    Try Again
+                </a>
+
+                <a href="/topics"
+                   class="secondary-button">
+                    Back to Topics
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+
+</html>

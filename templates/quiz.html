@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>{{ topic }} | PyQuiz</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <div class="quiz-container">
+
+        <!-- ================= HEADER ================= -->
+
+        <div class="quiz-header">
+
+            <div>
+                <h1>{{ topic }}</h1>
+
+                <p>
+                    Test your Python knowledge
+                </p>
+            </div>
+
+            <div class="question-counter">
+                Question
+                <span id="currentQuestion">1</span>
+                of
+                <span id="totalQuestions">{{ questions|length }}</span>
+            </div>
+
+        </div>
+
+
+        <!-- ================= PROGRESS ================= -->
+
+        <div class="progress-area">
+
+            <div class="progress-info">
+
+                <span>Progress</span>
+
+                <span id="progressPercent">
+                    0%
+                </span>
+
+            </div>
+
+            <div class="progress-bar">
+
+                <div class="progress-fill"
+                     id="progressFill">
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- ================= QUIZ ================= -->
+
+        <form method="POST"
+              id="quizForm">
+
+            {% for question in questions %}
+
+            <div class="question-card js-question"
+                 data-question="{{ loop.index0 }}">
+
+                <div class="question-number">
+                    Question {{ loop.index }}
+                </div>
+
+                <h2>
+                    {{ question["ques"] }}
+                </h2>
+
+
+                <div class="options">
+
+                    {% set question_index = loop.index0 %}
+
+                    {% for option in question["options"] %}
+
+                    <label class="option">
+
+                        <input
+                            type="radio"
+                            name="question_{{ question_index }}"
+                            value="{{ option }}"
+                        >
+
+                        <span>
+                            {{ option }}
+                        </span>
+
+                    </label>
+
+                    {% endfor %}
+
+                </div>
+
+            </div>
+
+            {% endfor %}
+
+
+            <!-- ================= NAVIGATION ================= -->
+
+            <div class="quiz-navigation">
+
+                <button type="button"
+                        id="previousButton"
+                        class="secondary-button">
+                    ← Previous
+                </button>
+
+
+                <button type="button"
+                        id="nextButton"
+                        class="primary-button">
+                    Next →
+                </button>
+
+
+                <button type="submit"
+                        id="submitButton"
+                        class="primary-button"
+                        style="display: none;">
+                    Submit Quiz ✓
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</body>
+
+</html>

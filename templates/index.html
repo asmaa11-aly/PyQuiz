@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>PyQuiz</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+
+<body>
+
+    <div class="app-container">
+
+        <!-- ================= SIDEBAR ================= -->
+
+        <aside class="sidebar">
+
+            <div class="logo">
+                <div class="python-logo">🐍</div>
+                <span>PyQuiz</span>
+            </div>
+
+
+            <nav class="navigation">
+
+                <a href="#" class="nav-item active">
+                    <span>⌂</span>
+                    <span>Home</span>
+                </a>
+
+                <a href="#topics" class="nav-item">
+                    <span>▦</span>
+                    <span>Topics</span>
+                </a>
+
+                <a href="#" class="nav-item">
+                    <span>▥</span>
+                    <span>Progress</span>
+                </a>
+
+                <a href="#" class="nav-item">
+                    <span>⌁</span>
+                    <span>Stats</span>
+                </a>
+
+                <a href="#" class="nav-item">
+                    <span>ⓘ</span>
+                    <span>About</span>
+                </a>
+
+            </nav>
+
+
+            <div class="sidebar-quote">
+
+                <div class="quote-mark">“</div>
+
+                <p>
+                    Small steps make
+                    big progress.
+                </p>
+
+                <div class="heart">♥</div>
+
+            </div>
+
+        </aside>
+
+
+
+        <!-- ================= MAIN ================= -->
+
+        <main class="main-content">
+
+
+            <!-- TOP BAR -->
+
+            <header class="topbar">
+
+                <div class="tabs">
+
+                    <span class="tab active-tab">
+                        Learn
+                    </span>
+
+                    <span class="tab">
+                        Practice
+                    </span>
+
+                    <span class="tab">
+                        Grow
+                    </span>
+
+                </div>
+
+
+                <div class="top-actions">
+
+                    <div class="search-box">
+                        <span>⌕</span>
+                        <span>Ready to code?</span>
+                        <span>⌕</span>
+                    </div>
+
+<button class="theme-button" id="themeToggle" onclick="toggleTheme()">
+    🌙
+</button>
+
+                    <div class="profile">
+
+                        <div class="avatar">
+                            A
+                        </div>
+
+                        <span>Hi, Asmaa</span>
+
+                        <span>⌄</span>
+
+                    </div>
+
+                </div>
+
+            </header>
+
+
+
+            <!-- ================= HERO ================= -->
+
+            <section class="hero">
+
+                <div class="hero-content">
+
+                    <h1>
+                        Python
+                        <span>Quiz</span>
+                        <b>✦</b>
+                    </h1>
+
+
+                    <h2>
+                        Turn your knowledge into progress 🌱
+                    </h2>
+
+
+                    <p class="hero-text">
+                        Practice. Make mistakes. Learn. Repeat.
+                    </p>
+
+
+                    <div class="hero-buttons">
+
+                        <a href="#topics"
+                           class="primary-button">
+                            Explore Topics
+                            <span>→</span>
+                        </a>
+
+
+                        <button class="secondary-button">
+                            <span>▥</span>
+                            See Your Progress
+                        </button>
+
+                    </div>
+
+
+
+                    <!-- STATS -->
+
+                    <div class="stats">
+
+                        <div class="stat-card purple-card">
+
+                            <div class="stat-icon">
+                                ♧
+                            </div>
+
+                            <div>
+                                <strong>10</strong>
+                                <small>Topics</small>
+                            </div>
+
+                        </div>
+
+
+                        <div class="stat-card blue-card">
+
+                            <div class="stat-icon">
+                                ▤
+                            </div>
+
+                            <div>
+                                <strong>156</strong>
+                                <small>Questions</small>
+                            </div>
+
+                        </div>
+
+
+                        <div class="stat-card pink-card">
+
+                            <div class="stat-icon">
+                                ☆
+                            </div>
+
+                            <div>
+                                <strong>∞</strong>
+                                <small>Learning</small>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- HERO VISUAL -->
+
+                <div class="hero-visual">
+
+                    <div class="sun-glow"></div>
+
+                    <div class="window">
+
+                        <div class="window-circle"></div>
+
+                    </div>
+
+
+                    <div class="plant">
+                        🌿
+                    </div>
+
+
+                    <div class="books">
+
+                        <div class="book book-one">
+                            Better You
+                        </div>
+
+                        <div class="book book-two">
+                            Code
+                        </div>
+
+                        <div class="book book-three">
+                            Ideas
+                        </div>
+
+                    </div>
+
+
+                    <div class="laptop">
+
+                        <div class="screen">
+
+                            <div class="screen-text">
+                                Good Developers
+                                <br>
+                                Never Stop
+                                <br>
+                                Learning ♥
+                            </div>
+
+                        </div>
+
+                        <div class="keyboard"></div>
+
+                    </div>
+
+
+                    <div class="python-shape">
+
+                        <span class="blue-python">
+                            🐍
+                        </span>
+
+                    </div>
+
+
+                    <div class="coffee">
+                        ☕
+                    </div>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- ================= TOPICS ================= -->
+
+            <section class="topics-section"
+                     id="topics">
+
+
+                <div class="section-heading">
+
+                    <div>
+
+                        <h2>
+                            <span>✦</span>
+                            Choose a Topic
+                        </h2>
+
+                        <p>
+                            Pick a topic and start your quiz journey
+                        </p>
+
+                    </div>
+
+
+                    <a href="#topics">
+                        View all topics →
+                    </a>
+
+                </div>
+
+
+
+                <div class="topics-grid">
+
+                    {% for topic in topics %}
+
+                    <a href="{{ url_for('quiz', topic_name=topic.name) }}" class="topic-card">
+
+    <div class="topic-icon {{ topic.class }}">
+        {{ topic.icon }}
+    </div>
+
+    <div class="topic-info">
+        <h3>{{ topic.name }}</h3>
+
+        <p>
+            {{ topic.count }} questions
+        </p>
+    </div>
+
+    <span class="arrow-button">
+        →
+    </span>
+
+</a>
+
+
+                    {% endfor %}
+
+                </div>
+
+            </section>
+
+
+
+            <!-- ================= FOOTER ================= -->
+
+            <footer>
+
+                <div class="footer-logo">
+                    🐍 <strong>PyQuiz</strong>
+                    <span>
+                        — Build your skills. Build your future.
+                    </span>
+                </div>
+
+
+                <div>
+                    Made by
+                    <span class="footer-heart">♥</span>
+                  Asmaa Aly 
+                </div>
+
+            </footer>
+
+
+        </main>
+
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
