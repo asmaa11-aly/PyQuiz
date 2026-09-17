@@ -1,4 +1,5 @@
 from flask import Flask, render_template, request
+from urllib.parse import unquote
 from questions import questions
 
 app = Flask(__name__)
@@ -82,8 +83,29 @@ def topics_page():
 
 # ================= QUIZ PAGE =================
 
+
+
 @app.route("/quiz/<path:topic_name>", methods=["GET", "POST"])
 def quiz(topic_name):
+
+    topic_map = {
+        "lists": "Lists",
+        "dictionaries": "Dictionaries",
+        "strings": "Strings",
+        "functions": "Functions",
+     "for loops": "For loops",
+    "while loops": "While loops",
+        "tuples": "Tuples",
+        "sets": "Sets",
+  "lambda / map / filter": "Lambda / Map / Filter",
+       
+        "mixed": "Mixed"
+    }
+
+    topic_name = topic_map.get(topic_name.lower())
+
+    if topic_name is None:
+        return "Topic not found", 404
 
     selected_questions = [
         q for q in questions
@@ -119,7 +141,6 @@ def quiz(topic_name):
         questions=selected_questions,
         topic=topic_name
     )
-
 
 # ================= RUN =================
 
