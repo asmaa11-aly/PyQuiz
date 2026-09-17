@@ -37,7 +37,7 @@
 
             <div class="result-buttons">
 
-                <a href="/quiz/{{ topic }}"
+                <a href="{{ url_for('quiz', topic_name=slug) }}"
                    class="primary-button">
                     Try Again
                 </a>
@@ -52,7 +52,9 @@
         </div>
 
     </div>
-<script src="{{ url_for('static', filename='script.js') }}"></script>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+
 </body>
 
 </html>

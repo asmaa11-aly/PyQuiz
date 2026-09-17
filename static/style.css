@@ -1825,7 +1825,7 @@ footer {
 ========================================= */
 
 .js-question {
-    animation: questionFade 0.9s ease-in-out;
+    animation: questionFade 0.3s ease;
 }
 
 @keyframes questionFade {

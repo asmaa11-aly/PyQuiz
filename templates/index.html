@@ -108,9 +108,9 @@
                         <span>⌕</span>
                     </div>
 
-<button class="theme-button" id="themeToggle" onclick="toggleTheme()">
-    🌙
-</button>
+                    <button class="theme-button" id="themeToggle" onclick="toggleTheme()">
+                        🌙
+                    </button>
 
                     <div class="profile">
 
@@ -329,26 +329,25 @@
 
                     {% for topic in topics %}
 
-                    <a href="{{ url_for('quiz', topic_name=topic.name) }}" class="topic-card">
+                    <a href="{{ url_for('quiz', topic_name=topic.slug) }}" class="topic-card">
 
-    <div class="topic-icon {{ topic.class }}">
-        {{ topic.icon }}
-    </div>
+                        <div class="topic-icon {{ topic.class }}">
+                            {{ topic.icon }}
+                        </div>
 
-    <div class="topic-info">
-        <h3>{{ topic.name }}</h3>
+                        <div class="topic-info">
+                            <h3>{{ topic.name }}</h3>
 
-        <p>
-            {{ topic.count }} questions
-        </p>
-    </div>
+                            <p>
+                                {{ topic.count }} questions
+                            </p>
+                        </div>
 
-    <span class="arrow-button">
-        →
-    </span>
+                        <span class="arrow-button">
+                            →
+                        </span>
 
-</a>
-
+                    </a>
 
                     {% endfor %}
 
@@ -373,8 +372,9 @@
                 <div>
                     Made by
                     <span class="footer-heart">♥</span>
-                  Asmaa Aly 
+                    Asmaa Aly
                 </div>
+
 
             </footer>
 
@@ -384,5 +384,6 @@
     </div>
 
     <script src="{{ url_for('static', filename='script.js') }}"></script>
+
 </body>
 </html>

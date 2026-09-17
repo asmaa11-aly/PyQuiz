@@ -1,5 +1,4 @@
 from flask import Flask, render_template, request
-from urllib.parse import unquote
 from questions import questions
 
 app = Flask(__name__)
@@ -56,6 +55,20 @@ def topics_page():
         },
     }
 
+    # URL-safe names
+    topic_slugs = {
+        "Lists": "lists",
+        "Dictionaries": "dictionaries",
+        "Strings": "strings",
+        "Functions": "functions",
+        "For loops": "for-loops",
+        "While loops": "while-loops",
+        "Tuples": "tuples",
+        "Sets": "sets",
+        "Lambda / Map / Filter": "lambda-map-filter",
+        "Mixed": "mixed"
+    }
+
     for question in questions:
 
         topic_name = question["topic"]
@@ -70,6 +83,7 @@ def topics_page():
 
             topics.append({
                 "name": topic_name,
+                "slug": topic_slugs[topic_name],
                 "count": count,
                 "icon": topic_info[topic_name]["icon"],
                 "class": topic_info[topic_name]["class"]
@@ -83,8 +97,6 @@ def topics_page():
 
 # ================= QUIZ PAGE =================
 
-
-
 @app.route("/quiz/<path:topic_name>", methods=["GET", "POST"])
 def quiz(topic_name):
 
@@ -93,12 +105,11 @@ def quiz(topic_name):
         "dictionaries": "Dictionaries",
         "strings": "Strings",
         "functions": "Functions",
-     "for loops": "For loops",
-    "while loops": "While loops",
+        "for-loops": "For loops",
+        "while-loops": "While loops",
         "tuples": "Tuples",
         "sets": "Sets",
-  "lambda / map / filter": "Lambda / Map / Filter",
-       
+        "lambda-map-filter": "Lambda / Map / Filter",
         "mixed": "Mixed"
     }
 
@@ -127,9 +138,17 @@ def quiz(topic_name):
             if user_answer == question["answer"]:
                 score += 1
 
+        # Get the slug for the result page
+        topic_slug = next(
+            slug
+            for slug, name in topic_map.items()
+            if name == topic_name
+        )
+
         return render_template(
             "result.html",
             topic=topic_name,
+            slug=topic_slug,
             score=score,
             total=len(selected_questions)
         )
@@ -141,6 +160,7 @@ def quiz(topic_name):
         questions=selected_questions,
         topic=topic_name
     )
+
 
 # ================= RUN =================
 
